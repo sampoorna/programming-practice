@@ -2,13 +2,15 @@
 
 def test(sideLengths):
 	last_cube = 2**32
-	while len(sideLengths)>0:
-		if sideLengths[0] >= sideLengths[-1] and sideLengths[0] <= last_cube:
-			last_cube = sideLengths[0]
-			sideLengths = sideLengths[1:]
-		elif sideLengths[0] <= sideLengths[-1] and sideLengths[-1] <= last_cube:
-			last_cube = sideLengths[-1]
-			sideLengths = sideLengths[:-1]
+	front_pointer = 0
+	end_pointer = -1
+	for i in sideLengths:
+		if sideLengths[front_pointer] >= sideLengths[end_pointer] and sideLengths[front_pointer] <= last_cube:
+			last_cube = sideLengths[front_pointer]
+			front_pointer += 1
+		elif sideLengths[front_pointer] <= sideLengths[end_pointer] and sideLengths[end_pointer] <= last_cube:
+			last_cube = sideLengths[end_pointer]
+			end_pointer += -1
 		else:
 			print "No"
 			return
