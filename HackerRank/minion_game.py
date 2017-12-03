@@ -1,3 +1,5 @@
+# Problem definition: https://www.hackerrank.com/challenges/the-minion-game/problem
+
 def minion_game(string):
     # your code goes here
 	vowels = 'AEIOU'

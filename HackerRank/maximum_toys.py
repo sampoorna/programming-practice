@@ -1,3 +1,4 @@
+# Problem definition: https://www.hackerrank.com/challenges/mark-and-toys/problem
 import sys
 
 def maximumToys(prices, k):

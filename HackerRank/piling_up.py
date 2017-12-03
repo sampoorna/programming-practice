@@ -1,4 +1,4 @@
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Problem definition: https://www.hackerrank.com/challenges/piling-up/problem
 
 def test(sideLengths):
 	last_cube = 2**32
