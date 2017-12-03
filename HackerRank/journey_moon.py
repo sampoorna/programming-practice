@@ -13,25 +13,21 @@ for i in xrange(l):
         astros[b] = country
         country += 1
     elif a in astros and b in astros and astros[a] != astros[b]:
-        s1 = set(countries[astros[a]])
-        s2 = set(countries[astros[b]])
-        s = s1.union(s2)
-        countries[astros[a]] = list(s)
-        del countries[astros[b]]
-        for i in s2:
+        to_delete = astros[b]
+        for i in countries[astros[b]]:
+            if i not in countries[astros[a]]:
+                countries[astros[a]].append(i)
             astros[i] = astros[a]
+        del countries[to_delete]
     elif b in astros and a not in astros:
         astros[a] = astros[b]
         countries[astros[b]].append(a)
     elif a in astros and b not in astros:
         astros[b] = astros[a]
         countries[astros[a]].append(b)
-for n in range(N):
-    if n not in astros:
-        astros[n] = country
-        countries[country] = [n]
-        country += 1
-print countries
+
+singles = len(set(range(N)) - set(astros.keys()))
+#print countries
 
 result = 0
 # Compute the final result using the inputs from above
@@ -42,5 +38,7 @@ for i in countries:
             continue
         #print i, j
         result += len(countries[i]) * len(countries[j])
-    
-print result
+if singles > 0: 
+    print result + singles*(len(astros.keys())) + ((singles * (singles - 1))/2)
+else:
+    print result
