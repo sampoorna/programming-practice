@@ -1,0 +1,11 @@
+OOP Design Question
+
+Objects:
+private String originalURL; // Original URL
+private String shortenedURL; // Shortened URL
+private int numVisits; // Number of visits
+
+Methods:
+public String getShortURL(String longURL) {
+    return shortenedURL;
+}
